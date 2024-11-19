@@ -1,0 +1,88 @@
+body {
+  overflow-y: scroll;
+  background-color: #333;
+  color: white;
+}
+
+.navbar {
+  border: 1% solid #333;
+}
+
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+.topNavbar {
+  position: relative;
+}
+
+.centeredLink {
+  text-align: center;
+}
+
+.topRightLink {
+  position: absolute;
+  top: 0;
+  right: 1%;
+}
+
+.mainNavbar {
+  display: flex;
+  justify-content: center;
+  gap: 1%;
+}
+
+.subNavbar {
+  display: flex;
+  justify-content: center;
+  gap: 1%;
+}
+
+.activeLink:visited {
+  color: #00c00a;
+}
+
+a:visited {
+  color: #61dafb;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.buttonLinks a {
+  display: inline-block;
+  padding: 2px 3px;
+  margin: 1px;
+  border: 1px solid #000;
+  border-radius: 15%;
+  background-color: #000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+html, body {
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.option-item.lined-out label {
+  text-decoration: line-through;
+}

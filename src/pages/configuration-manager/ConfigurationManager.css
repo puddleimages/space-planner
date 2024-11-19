@@ -1,0 +1,130 @@
+.configuration-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.asset-container {
+  display: flex;
+  align-items: center;
+  width: 95%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin: 1px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #333;
+}
+
+.status-container {
+  border-right: 1px solid #ccc;
+  padding: 1px 3px;
+  text-align: center;
+  background-color: #333;
+}
+
+.options-container {
+  display: flex;
+  padding: 3px;
+  gap: 6px;
+  background-color: #333;
+}
+
+.option-container {
+  flex-direction: column;
+  padding: 3px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #333;
+}
+
+.suboptions-container {
+  display: flex;
+  background-color: #333;
+}
+
+.suboption-container {
+  flex-direction: column;
+  white-space: nowrap;
+  border-radius: 6px;
+  margin: 1px 1px;
+  border: 1px solid #ccc;
+  background-color: #333;
+  padding: 1px;
+  flex: 1;
+}
+
+.feature-capabilities-container {
+  display: flex;
+  background-color: #333;
+}
+
+.feature-capability-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1px 0px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #333;
+}
+
+.feature-types-container {
+  display: flex;
+}
+
+.feature-type-container {
+  display: flex;
+  flex-direction: column;
+  padding: 3px;
+  width: 100%;
+  margin: 1px 0px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.features-container {
+  display: flex;
+  background-color: #333333;
+}
+
+.feature-container {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0px 2px;
+  background-color: #333;
+}
+
+.pathways-container {
+  display: flex;
+  background-color: #333;
+}
+
+.pathway-container {
+  flex: 1;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  flex-direction: column;
+  background-color: #333;
+  flex: 1;
+}
+
+.red {
+  background-color: darkred !important;
+}
+
+.green {
+  background-color: green;
+}
+
+.lightgreen {
+  background-color: rgb(1, 185, 1);
+}
+
+.grey {
+  background-color: grey;
+}
+
+.blue {
+  background-color: blue;
+}
