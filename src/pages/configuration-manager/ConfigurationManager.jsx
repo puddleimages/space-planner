@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { exportData, importData } from "./utils/functions";
 import AssetContainer from "./subcomponents/AssetContainer";
 import './ConfigurationManager.css';
+import AssetToolTip from "./subcomponents/AssetToolTip";
 
 const ConfigurationManager = () => {
   const [capabilities, setCapabilities] = useState(null);
@@ -225,6 +226,7 @@ const ConfigurationManager = () => {
   return (
     <div>
       <div>
+        <AssetToolTip />
         <input 
           type="file" 
           onChange={(e) => importData(e, {

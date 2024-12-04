@@ -143,6 +143,16 @@ const SuboptionContainer = ({
     }
   }
 
+  const isConfiguredSuboptionFeatureType = (assetId, suboptionId, typeId) => {
+    console.log(featuresByType[typeId].map(feature => feature.id))
+    featuresByType[typeId].map(feature => feature.id)
+    if (configuredSuboptionFeatureObjects.some(obj => obj.assetId === assetId &&
+      obj.suboptionId === suboptionId && featuresByType[typeId].map(feature => feature.id).includes(obj.featureId)
+    )) {
+      return 'green'
+    }
+  }
+
   const isConfiguredSuboptionFeature = (assetId, suboptionId, featureId) => {
     if (configuredSuboptionFeatureObjects.some(obj => obj.assetId === assetId &&
       obj.suboptionId === suboptionId && obj.featureId === featureId
@@ -152,7 +162,7 @@ const SuboptionContainer = ({
   }
 
   return (
-    <div className={`suboption-container ${isRedSuboption ? '' : 'red'} ${isConfiguredSuboption(asset.id, suboption.id)}`} ref={divRef}>
+    <div className={`suboption-container ${isRedSuboption ? configuredSuboptionObjects.some(obj => obj.assetId === asset.id && obj.suboptionId === suboption.id) ? 'orangered' : 'red' : ''} ${isConfiguredSuboption(asset.id, suboption.id)}`} ref={divRef}>
       <div onContextMenu={handleSuboptionContextMenu} onClick={handleSuboptionClick}>
         {suboption.name}
         {isConfigured && (
@@ -169,16 +179,17 @@ const SuboptionContainer = ({
         )}
       </div>
       <div className="feature-types-container">
+        {/* ${isRedSuboption ? configuredSuboptionFeatureObjects.some(obj => obj.assetId === asset.id && obj.optionId === option.id && obj.suboptionId === suboption.id && featuresByType.includes(obj.featureId)) ? 'orangered' : 'red' : ''} ${isConfiguredSuboption(asset.id, suboption.id)}`} ref={divRef} */}
         {types.map((type) => (
           featuresByType[type.id] && featuresByType[type.id].length > 0 && (
-            <div key={type.id} className={`feature-type-container ${isRedSuboptionFeatureType(suboption.id, type.id) ? 'red' : ''}`}>
+            <div key={type.id} className={`feature-type-container ${isRedSuboptionFeatureType(suboption.id, type.id) ? configuredSuboptionObjects.some(obj => obj.assetId === asset.id && obj.suboptionId === suboption.id) ? 'orangered' : 'red' : ''} ${isConfiguredSuboptionFeatureType(asset.id, suboption.id, type.id)}`} ref={divRef}>
               <div  onClick={handleSuboptionClick} onContextMenu={(event) => handleSuboptionFeatureTypeContextMenu(event, type.id)}>{type.name}</div>
               <div className="features-container">
                 {featuresByType[type.id].map((feature) => (
                   <div
                     key={feature.id}
                     className={`feature-container ${
-                      isRedSuboptionFeature(suboption.id, feature.id) ? 'red' : ''
+                      isRedSuboptionFeature(suboption.id, feature.id) ? configuredSuboptionFeatureObjects.some(obj => obj.assetId === asset.id && obj.optionId === option.id && obj.suboptionId === suboption.id && obj.featureId === feature.id) ? 'orangered' : 'red' : ''
                     } ${
                       isConfiguredSuboptionFeature(asset.id, suboption.id, feature.id)
                     }`}
@@ -200,7 +211,7 @@ const SuboptionContainer = ({
             .map(pathway => (
               <div
                 key={pathway.id}
-                className={`pathway-container ${redPathwayIds.includes(pathway.id) ? 'red' : ''} ${isConfiguredPathway(asset.id, pathway.id)}`}
+                className={`pathway-container ${redPathwayIds.includes(pathway.id) ? configuredPathwayObjects.some(obj => obj.assetId === asset.id && obj.pathwayId === pathway.id) ? 'orangered' : 'red' : ''} ${isConfiguredPathway(asset.id, pathway.id)}`}
                 onContextMenu={(event) => handlePathwayContextMenu(event, pathway.id)}
                 onClick={() => handlePathwayClick(asset.id, pathway.id, suboption)}
               >

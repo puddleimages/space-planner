@@ -108,7 +108,7 @@ const OptionContainer = ({
                 onSuboptionFeatureTypeContextMenu={handleSuboptionFeatureTypeContextMenu}
                 onSuboptionFeatureContextMenu={handleSuboptionFeatureContextMenu}
                 onPathwayContextMenu={handlePathwayContextMenu}
-                isRedSuboption={!redSuboptionIds.includes(suboption.id)}
+                isRedSuboption={redSuboptionIds.includes(suboption.id)}
                 redSuboptionFeatureTypeObjects={redSuboptionFeatureTypeObjects}
                 redSuboptionFeatureObjects={redSuboptionFeatureObjects}
                 redPathwayIds={redPathwayIds}
@@ -131,7 +131,7 @@ const OptionContainer = ({
             .map(pathway => {
               return (
                 <div 
-                  className={`pathway-container ${isRedPathway(pathway.id) ? 'red' : ''} ${isConfiguredPathway(asset.id, pathway.id) ? 'green' : ''}`}
+                  className={`pathway-container ${isRedPathway(pathway.id) ? configuredPathwayObjects.some(obj => obj.assetId === asset.id && obj.pathwayId === pathway.id) ? 'orangered' : 'red' : ''} ${isConfiguredPathway(asset.id, pathway.id) ? 'green' : ''}`}
                   key={pathway.id} 
                   onContextMenu={() => handlePathwayContextMenu(pathway.id)}
                   onClick={() => handlePathwayClick(asset.id, pathway.id)}
