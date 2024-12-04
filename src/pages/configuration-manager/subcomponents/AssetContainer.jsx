@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import OptionContainer from './OptionContainer';
 import { useEffect } from 'react';
+import OptionContainer from './OptionContainer';
+import AssetToolTip from './AssetToolTip';
 
 const AssetContainer = ({ 
   asset,
